@@ -1,0 +1,18 @@
+{
+  "name": "VidMate",
+  "description": "HD Video Downloader & Live TV",
+  "version": "5.0952",
+  "author": "yeamin12345678900-eng",
+  "license": "MIT",
+  "keywords": [
+    "video",
+    "downloader",
+    "hd",
+    "live-tv",
+    "streaming"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yeamin12345678900-eng/Vidmate-"
+  }
+}
