@@ -1,15 +1,20 @@
 {
   "name": "VidMate",
-  "description": "HD Video Downloader & Live TV",
   "version": "5.0952",
+  "description": "HD Video Downloader & Live TV Streaming Application",
   "author": "yeamin12345678900-eng",
   "license": "MIT",
   "keywords": [
-    "video",
-    "downloader",
-    "hd",
+    "video-downloader",
     "live-tv",
-    "streaming"
+    "streaming",
+    "download",
+    "youtube",
+    "facebook",
+    "tiktok",
+    "music",
+    "bengali",
+    "natok"
   ],
   "repository": {
     "type": "git",
@@ -17,6 +22,14 @@
   },
   "scripts": {
     "start": "python3 -m http.server 3000",
-    "dev": "python3 -m http.server 3000"
-  }
+    "dev": "python3 -m http.server 3000",
+    "serve": "npx http-server"
+  },
+  "main": "index.html",
+  "browserslist": [
+    "> 0.5%",
+    "last 2 versions",
+    "not dead",
+    "not IE 11"
+  ]
 }

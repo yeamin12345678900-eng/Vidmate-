@@ -1,144 +1,312 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <title>VidMate</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <main class="app-shell">
-      <div class="status-bar">
-        <span>11:15 ◉</span>
-        <span>⌁ 4G ▮50</span>
-      </div>
-
-      <header class="topbar" aria-label="Search and actions">
-        <div class="search-box">
-          <span class="search-icon">⌕</span>
-          <input id="searchInput" type="search" placeholder="Search or enter url" aria-label="Search or enter URL" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#000000">
+    <title>VidMate - HD Video Downloader & Live TV</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Status Bar -->
+        <div class="status-bar">
+            <span class="time">9:41</span>
+            <div class="status-right">
+                <span class="signal">◉◉◉</span>
+                <span class="wifi">📶</span>
+                <span class="battery">🔋</span>
+            </div>
         </div>
-        <button class="download-top" title="Downloads" aria-label="Downloads">⇩</button>
-      </header>
 
-      <nav class="category-row" aria-label="Categories">
-        <button class="category shorts" data-filter="shorts"><b>▶</b> Shorts <i></i></button>
-        <button class="category active" data-filter="all">All</button>
-        <button class="category" data-filter="natok">Natok</button>
-        <button class="category" data-filter="music">Music</button>
-        <button class="category" data-filter="podcast">Podcast</button>
-      </nav>
-
-      <section class="quick-links" aria-label="Quick links">
-        <a href="#youtube">
-          <span class="brand youtube">▶</span>
-          <label>Youtube</label>
-        </a>
-        <a href="#whatsapp">
-          <span class="brand whatsapp">◔</span>
-          <label>WhatsApp</label>
-        </a>
-        <a href="#facebook">
-          <span class="brand facebook">f</span>
-          <label>Facebook</label>
-        </a>
-        <a href="#tiktok">
-          <span class="brand tiktok">♪</span>
-          <label>TikTok</label>
-        </a>
-        <a href="#sites">
-          <span class="brand sites">◉</span>
-          <label>Sites</label>
-        </a>
-      </section>
-
-      <section class="feed" id="feed">
-        <article class="video-card" data-category="natok">
-          <div class="thumbnail thumb-one">
-            <button class="add">+</button>
-            <button class="play">▶</button>
-            <span class="views">11M views</span>
-            <span class="duration">36:40</span>
-          </div>
-          <div class="video-info">
-            <div class="avatar laser">L</div>
-            <div class="details">
-              <h2>Behaya Jamai | বেহায়া জামাই | Niloy Alamgir | Jannatul Sumaiya Heme | New</h2>
-              <p>Laser Studio · 5mo ago</p>
+        <!-- Header with Search -->
+        <header class="app-header">
+            <div class="header-top">
+                <div class="logo">VidMate</div>
+                <button class="menu-btn" id="menuBtn">☰</button>
             </div>
-            <button class="more">⋮</button>
-          </div>
-        </article>
-
-        <article class="video-card" data-category="music">
-          <div class="thumbnail thumb-two">
-            <button class="add">+</button>
-            <button class="play">▶</button>
-            <span class="views">4.8M views</span>
-            <span class="duration">28:12</span>
-          </div>
-          <div class="video-info">
-            <div class="avatar user">●</div>
-            <div class="details">
-              <h2>Kalyani X Shreya Ghoshal Mashup (Full Version) | Bengali Music</h2>
-              <p>Music Studio · 8mo ago</p>
+            <div class="search-container">
+                <input type="text" id="searchInput" class="search-input" placeholder="Search videos, music, natok...">
+                <button class="search-btn">🔍</button>
             </div>
-            <button class="more">⋮</button>
-          </div>
-        </article>
+        </header>
 
-        <article class="video-card" data-category="natok">
-          <div class="thumbnail thumb-three">
-            <button class="add">+</button>
-            <button class="play">▶</button>
-            <span class="views">2.1M views</span>
-            <span class="duration">12:05</span>
-          </div>
-          <div class="video-info">
-            <div class="avatar nature">N</div>
-            <div class="details">
-              <h2>Best Bangla Natok Collection 2025</h2>
-              <p>Bangla Entertainment · 3mo ago</p>
-            </div>
-            <button class="more">⋮</button>
-          </div>
-        </article>
-      </section>
+        <!-- Categories/Tabs -->
+        <div class="category-tabs">
+            <button class="tab-item active" data-category="all">All</button>
+            <button class="tab-item" data-category="youtube">Youtube</button>
+            <button class="tab-item" data-category="facebook">Facebook</button>
+            <button class="tab-item" data-category="music">Music</button>
+            <button class="tab-item" data-category="natok">Natok</button>
+            <button class="tab-item" data-category="live">Live TV</button>
+        </div>
 
-      <nav class="bottom-nav" aria-label="Main navigation">
-        <a class="selected" href="#feed"><span>⌂</span><small>HOME</small></a>
-        <a href="#shorts"><span>▷</span><small>SHORTS</small></a>
-        <a href="#files"><span>⇩</span><small>MY FILES</small></a>
-        <a href="#me"><span>♙</span><small>ME</small></a>
-      </nav>
-    </main>
+        <!-- Quick Links -->
+        <div class="quick-access">
+            <a href="#youtube" class="quick-btn youtube-btn">
+                <div class="quick-icon">▶️</div>
+                <div class="quick-label">YouTube</div>
+            </a>
+            <a href="#facebook" class="quick-btn facebook-btn">
+                <div class="quick-icon">f</div>
+                <div class="quick-label">Facebook</div>
+            </a>
+            <a href="#whatsapp" class="quick-btn whatsapp-btn">
+                <div class="quick-icon">💬</div>
+                <div class="quick-label">WhatsApp</div>
+            </a>
+            <a href="#tiktok" class="quick-btn tiktok-btn">
+                <div class="quick-icon">♪</div>
+                <div class="quick-label">TikTok</div>
+            </a>
+            <a href="#instagram" class="quick-btn instagram-btn">
+                <div class="quick-icon">📷</div>
+                <div class="quick-label">Instagram</div>
+            </a>
+            <a href="#more" class="quick-btn more-btn">
+                <div class="quick-icon">+</div>
+                <div class="quick-label">More</div>
+            </a>
+        </div>
+
+        <!-- Main Content Area -->
+        <main class="content-area">
+            <!-- Featured Section -->
+            <section class="featured-section" id="featured">
+                <h3>Featured Downloads</h3>
+                <div class="featured-items">
+                    <div class="featured-card" data-category="youtube">
+                        <div class="featured-thumb youtube-thumb">
+                            <div class="video-badge">▶</div>
+                            <div class="view-count">2.3M views</div>
+                        </div>
+                        <div class="featured-info">
+                            <h4>Best YouTube Videos 2025</h4>
+                            <p>Top trending videos</p>
+                        </div>
+                    </div>
+
+                    <div class="featured-card" data-category="music">
+                        <div class="featured-thumb music-thumb">
+                            <div class="video-badge">♪</div>
+                            <div class="view-count">4.8M views</div>
+                        </div>
+                        <div class="featured-info">
+                            <h4>Bangla Music Collection</h4>
+                            <p>Latest Bengali songs</p>
+                        </div>
+                    </div>
+
+                    <div class="featured-card" data-category="natok">
+                        <div class="featured-thumb natok-thumb">
+                            <div class="video-badge">▶</div>
+                            <div class="view-count">1.5M views</div>
+                        </div>
+                        <div class="featured-info">
+                            <h4>Bengali Natok Drama</h4>
+                            <p>Best natok episodes</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Downloads Section -->
+            <section class="downloads-section">
+                <h3>Recent Downloads</h3>
+                <div class="video-list">
+                    <div class="video-item" data-category="youtube">
+                        <div class="video-thumb">
+                            <div class="play-icon">▶</div>
+                            <div class="duration">15:42</div>
+                            <div class="quality">1080p</div>
+                        </div>
+                        <div class="video-details">
+                            <h4>Amazing Travel Vlog</h4>
+                            <p class="channel">Travel Hub Channel</p>
+                            <p class="meta">2.1M views • 3 days ago</p>
+                            <div class="download-options">
+                                <button class="dl-btn">⬇ MP4</button>
+                                <button class="dl-btn">⬇ Audio</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="video-item" data-category="music">
+                        <div class="video-thumb">
+                            <div class="play-icon">♪</div>
+                            <div class="duration">4:23</div>
+                            <div class="quality">320kbps</div>
+                        </div>
+                        <div class="video-details">
+                            <h4>New Bangla Love Song 2025</h4>
+                            <p class="channel">Music BD</p>
+                            <p class="meta">5.2M views • 1 week ago</p>
+                            <div class="download-options">
+                                <button class="dl-btn">⬇ Audio</button>
+                                <button class="dl-btn">⬇ Video</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="video-item" data-category="facebook">
+                        <div class="video-thumb">
+                            <div class="play-icon">▶</div>
+                            <div class="duration">8:15</div>
+                            <div class="quality">720p</div>
+                        </div>
+                        <div class="video-details">
+                            <h4>Facebook Comedy Video</h4>
+                            <p class="channel">Funny Club</p>
+                            <p class="meta">8.9M views • 2 weeks ago</p>
+                            <div class="download-options">
+                                <button class="dl-btn">⬇ MP4</button>
+                                <button class="dl-btn">⬇ Share</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="video-item" data-category="natok">
+                        <div class="video-thumb">
+                            <div class="play-icon">▶</div>
+                            <div class="duration">42:30</div>
+                            <div class="quality">1080p</div>
+                        </div>
+                        <div class="video-details">
+                            <h4>Bangla Natok - Part 1</h4>
+                            <p class="channel">Drama Studio BD</p>
+                            <p class="meta">3.4M views • 1 month ago</p>
+                            <div class="download-options">
+                                <button class="dl-btn">⬇ HD</button>
+                                <button class="dl-btn">⬇ SD</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="video-item" data-category="live">
+                        <div class="video-thumb live-badge">
+                            <div class="play-icon">📺</div>
+                            <div class="live-label">LIVE</div>
+                            <div class="quality">720p</div>
+                        </div>
+                        <div class="video-details">
+                            <h4>BTV Live - BD News</h4>
+                            <p class="channel">Bangladesh TV</p>
+                            <p class="meta">Currently Live</p>
+                            <div class="download-options">
+                                <button class="dl-btn">▶ Watch</button>
+                                <button class="dl-btn">📹 Record</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Trending Section -->
+            <section class="trending-section">
+                <h3>🔥 Trending Now</h3>
+                <div class="trending-list">
+                    <div class="trend-item">
+                        <span class="trend-num">1</span>
+                        <div class="trend-info">
+                            <h4>Viral Comedy Compilation</h4>
+                            <p>12M views today</p>
+                        </div>
+                        <span class="trend-arrow">→</span>
+                    </div>
+                    <div class="trend-item">
+                        <span class="trend-num">2</span>
+                        <div class="trend-info">
+                            <h4>Latest Bangla Music Mix</h4>
+                            <p>8.5M views today</p>
+                        </div>
+                        <span class="trend-arrow">→</span>
+                    </div>
+                    <div class="trend-item">
+                        <span class="trend-num">3</span>
+                        <div class="trend-info">
+                            <h4>Breaking News Live</h4>
+                            <p>5.2M watching</p>
+                        </div>
+                        <span class="trend-arrow">→</span>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Bottom Navigation -->
+        <nav class="bottom-nav">
+            <a href="#home" class="nav-item active">
+                <span class="nav-icon">🏠</span>
+                <span class="nav-label">Home</span>
+            </a>
+            <a href="#downloads" class="nav-item">
+                <span class="nav-icon">⬇</span>
+                <span class="nav-label">Downloads</span>
+            </a>
+            <a href="#search" class="nav-item">
+                <span class="nav-icon">🔍</span>
+                <span class="nav-label">Search</span>
+            </a>
+            <a href="#favorites" class="nav-item">
+                <span class="nav-icon">❤️</span>
+                <span class="nav-label">Favorites</span>
+            </a>
+            <a href="#settings" class="nav-item">
+                <span class="nav-icon">⚙️</span>
+                <span class="nav-label">Settings</span>
+            </a>
+        </nav>
+    </div>
 
     <script>
-      const input = document.getElementById('searchInput');
-      const categoryButtons = document.querySelectorAll('.category');
-      const cards = document.querySelectorAll('.video-card');
-      let activeCategory = 'all';
+        // Category filtering
+        const categoryTabs = document.querySelectorAll('.tab-item');
+        const videoItems = document.querySelectorAll('.video-item, .featured-card');
+        let activeCategory = 'all';
 
-      function applyFilter() {
-        const query = input.value.trim().toLowerCase();
-
-        cards.forEach((card) => {
-          const textMatch = !query || card.innerText.toLowerCase().includes(query);
-          const categoryMatch = activeCategory === 'all' || card.dataset.category === activeCategory;
-          card.hidden = !(textMatch && categoryMatch);
+        categoryTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                categoryTabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                activeCategory = tab.dataset.category;
+                filterVideos();
+            });
         });
-      }
 
-      input.addEventListener('input', applyFilter);
+        // Search functionality
+        const searchInput = document.getElementById('searchInput');
+        searchInput.addEventListener('input', filterVideos);
 
-      categoryButtons.forEach((button) => {
-        button.addEventListener('click', () => {
-          categoryButtons.forEach((item) => item.classList.remove('active'));
-          button.classList.add('active');
-          activeCategory = button.dataset.filter || 'all';
-          applyFilter();
+        function filterVideos() {
+            const query = searchInput.value.toLowerCase();
+            videoItems.forEach(item => {
+                const text = item.innerText.toLowerCase();
+                const category = item.dataset.category;
+                const matchesSearch = !query || text.includes(query);
+                const matchesCategory = activeCategory === 'all' || category === activeCategory;
+                item.style.display = (matchesSearch && matchesCategory) ? 'block' : 'none';
+            });
+        }
+
+        // Bottom navigation
+        const navItems = document.querySelectorAll('.nav-item');
+        navItems.forEach(item => {
+            item.addEventListener('click', (e) => {
+                e.preventDefault();
+                navItems.forEach(i => i.classList.remove('active'));
+                item.classList.add('active');
+            });
         });
-      });
+
+        // Download buttons
+        const dlBtns = document.querySelectorAll('.dl-btn');
+        dlBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                alert('Download started! This would connect to your backend API.');
+            });
+        });
     </script>
-  </body>
+</body>
 </html>
