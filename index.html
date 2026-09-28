@@ -1,70 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <title>VidMate</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <main class="app-shell">
-        <div class="status-bar"><span>11:15 ◉</span><span>⌁ 4G ▮50</span></div>
+      <div class="status-bar">
+        <span>11:15 ◉</span>
+        <span>⌁ 4G ▮50</span>
+      </div>
 
-        <header class="topbar">
-            <div class="search-box"><span class="search-icon">⌕</span><input id="searchInput" type="search" placeholder="Search or enter url" aria-label="Search or enter URL"></div>
-            <button class="download-top" title="Downloads" aria-label="Downloads">⇩</button>
-        </header>
+      <header class="topbar" aria-label="Search and actions">
+        <div class="search-box">
+          <span class="search-icon">⌕</span>
+          <input id="searchInput" type="search" placeholder="Search or enter url" aria-label="Search or enter URL" />
+        </div>
+        <button class="download-top" title="Downloads" aria-label="Downloads">⇩</button>
+      </header>
 
-        <nav class="category-row" aria-label="Categories">
-            <button class="category shorts"><b>▶</b> Shorts <i></i></button>
-            <button class="category active">All</button>
-            <button class="category">Natok</button>
-            <button class="category">Music</button>
-            <button class="category">Podcast</button>
-        </nav>
+      <nav class="category-row" aria-label="Categories">
+        <button class="category shorts" data-filter="shorts"><b>▶</b> Shorts <i></i></button>
+        <button class="category active" data-filter="all">All</button>
+        <button class="category" data-filter="natok">Natok</button>
+        <button class="category" data-filter="music">Music</button>
+        <button class="category" data-filter="podcast">Podcast</button>
+      </nav>
 
-        <section class="quick-links" aria-label="Quick links">
-            <a href="#youtube"><span class="brand youtube">▶</span><label>Youtube</label></a>
-            <a href="#whatsapp"><span class="brand whatsapp">◔</span><label>WhatsApp</label></a>
-            <a href="#facebook"><span class="brand facebook">f</span><label>Facebook</label></a>
-            <a href="#tiktok"><span class="brand tiktok">♪</span><label>TikTok</label></a>
-            <a href="#sites"><span class="brand sites">◉</span><label>Sites</label></a>
-        </section>
+      <section class="quick-links" aria-label="Quick links">
+        <a href="#youtube">
+          <span class="brand youtube">▶</span>
+          <label>Youtube</label>
+        </a>
+        <a href="#whatsapp">
+          <span class="brand whatsapp">◔</span>
+          <label>WhatsApp</label>
+        </a>
+        <a href="#facebook">
+          <span class="brand facebook">f</span>
+          <label>Facebook</label>
+        </a>
+        <a href="#tiktok">
+          <span class="brand tiktok">♪</span>
+          <label>TikTok</label>
+        </a>
+        <a href="#sites">
+          <span class="brand sites">◉</span>
+          <label>Sites</label>
+        </a>
+      </section>
 
-        <section class="feed" id="feed">
-            <article class="video-card">
-                <div class="thumbnail thumb-one"><button class="add">+</button><button class="play">▶</button><span class="views">11M views</span><span class="duration">36:40</span></div>
-                <div class="video-info"><div class="avatar laser">L</div><div class="details"><h2>Behaya Jamai | বেহায়া জামাই | Niloy Alamgir | Jannatul Sumaiya Heme | New Natok 2025</h2><p>Laser Vision · 1y ago</p></div><button class="more-download">⇩</button><button class="more">⋮</button></div>
-            </article>
-            <article class="video-card">
-                <div class="thumbnail thumb-two"><button class="add">+</button><button class="play">▶</button><span class="views">4.8M views</span><span class="duration">28:12</span></div>
-                <div class="video-info"><div class="avatar user">●</div><div class="details"><h2>Kalyani X Shreya Ghoshal Mashup (Full Version) | Bengali Music</h2><p>Music Studio · 8mo ago</p></div><button class="more-download">⇩</button><button class="more">⋮</button></div>
-            </article>
-            <article class="video-card">
-                <div class="thumbnail thumb-three"><button class="add">+</button><button class="play">▶</button><span class="views">2.1M views</span><span class="duration">12:05</span></div>
-                <div class="video-info"><div class="avatar nature">N</div><div class="details"><h2>Best Bangla Natok Collection 2025</h2><p>Bangla Entertainment · 3mo ago</p></div><button class="more-download">⇩</button><button class="more">⋮</button></div>
-            </article>
-        </section>
+      <section class="feed" id="feed">
+        <article class="video-card" data-category="natok">
+          <div class="thumbnail thumb-one">
+            <button class="add">+</button>
+            <button class="play">▶</button>
+            <span class="views">11M views</span>
+            <span class="duration">36:40</span>
+          </div>
+          <div class="video-info">
+            <div class="avatar laser">L</div>
+            <div class="details">
+              <h2>Behaya Jamai | বেহায়া জামাই | Niloy Alamgir | Jannatul Sumaiya Heme | New</h2>
+              <p>Laser Studio · 5mo ago</p>
+            </div>
+            <button class="more">⋮</button>
+          </div>
+        </article>
 
-        <nav class="bottom-nav" aria-label="Main navigation">
-            <a class="selected" href="#feed"><span>⌂</span><small>HOME</small></a>
-            <a href="#shorts"><span>▷</span><small>SHORTS</small></a>
-            <a href="#files"><span>⇩</span><small>MY FILES</small></a>
-            <a href="#me"><span>♙</span><small>ME</small></a>
-        </nav>
+        <article class="video-card" data-category="music">
+          <div class="thumbnail thumb-two">
+            <button class="add">+</button>
+            <button class="play">▶</button>
+            <span class="views">4.8M views</span>
+            <span class="duration">28:12</span>
+          </div>
+          <div class="video-info">
+            <div class="avatar user">●</div>
+            <div class="details">
+              <h2>Kalyani X Shreya Ghoshal Mashup (Full Version) | Bengali Music</h2>
+              <p>Music Studio · 8mo ago</p>
+            </div>
+            <button class="more">⋮</button>
+          </div>
+        </article>
+
+        <article class="video-card" data-category="natok">
+          <div class="thumbnail thumb-three">
+            <button class="add">+</button>
+            <button class="play">▶</button>
+            <span class="views">2.1M views</span>
+            <span class="duration">12:05</span>
+          </div>
+          <div class="video-info">
+            <div class="avatar nature">N</div>
+            <div class="details">
+              <h2>Best Bangla Natok Collection 2025</h2>
+              <p>Bangla Entertainment · 3mo ago</p>
+            </div>
+            <button class="more">⋮</button>
+          </div>
+        </article>
+      </section>
+
+      <nav class="bottom-nav" aria-label="Main navigation">
+        <a class="selected" href="#feed"><span>⌂</span><small>HOME</small></a>
+        <a href="#shorts"><span>▷</span><small>SHORTS</small></a>
+        <a href="#files"><span>⇩</span><small>MY FILES</small></a>
+        <a href="#me"><span>♙</span><small>ME</small></a>
+      </nav>
     </main>
+
     <script>
-        const input = document.getElementById('searchInput');
-        input.addEventListener('input', () => {
-            const query = input.value.toLowerCase();
-            document.querySelectorAll('.video-card').forEach(card => {
-                card.hidden = query && !card.innerText.toLowerCase().includes(query);
-            });
+      const input = document.getElementById('searchInput');
+      const categoryButtons = document.querySelectorAll('.category');
+      const cards = document.querySelectorAll('.video-card');
+      let activeCategory = 'all';
+
+      function applyFilter() {
+        const query = input.value.trim().toLowerCase();
+
+        cards.forEach((card) => {
+          const textMatch = !query || card.innerText.toLowerCase().includes(query);
+          const categoryMatch = activeCategory === 'all' || card.dataset.category === activeCategory;
+          card.hidden = !(textMatch && categoryMatch);
         });
-        document.querySelectorAll('.category').forEach(button => button.addEventListener('click', () => {
-            document.querySelectorAll('.category').forEach(item => item.classList.remove('active'));
-            button.classList.add('active');
-        }));
+      }
+
+      input.addEventListener('input', applyFilter);
+
+      categoryButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+          categoryButtons.forEach((item) => item.classList.remove('active'));
+          button.classList.add('active');
+          activeCategory = button.dataset.filter || 'all';
+          applyFilter();
+        });
+      });
     </script>
-</body>
+  </body>
 </html>
